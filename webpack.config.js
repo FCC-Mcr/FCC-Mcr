@@ -56,7 +56,7 @@ if (TARGET === 'start' || !TARGET){
       progress: true,
       stats: 'errors-only',
       //windows and vm users may need alternative host and port settings
-      host: process.env.HOST,
+      host: '0.0.0.0',
       port: process.env.PORT
     },
     module: {
