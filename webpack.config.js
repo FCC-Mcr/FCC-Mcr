@@ -29,7 +29,8 @@ const common = {
     // link tags for any required assets
     new HtmlWebPackPlugin({
       title: 'react-babel-sass-starter',
-      template: 'html!./src/templates/index.html'
+      //template: 'html!./src/templates/index.html'
+      template: './src/templates/index.jade'
     })
   ],
   module: {
@@ -38,6 +39,9 @@ const common = {
          test: /.jsx?$/,
          loaders: ['babel'],
          include: PATHS.src
+       },
+       { test: /\.jade$/,
+         loader: 'jade'
        }
     ]
   },
