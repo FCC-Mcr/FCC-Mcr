@@ -1,9 +1,0 @@
-@import './resets/normalize.css';
-
-body {
-  background: teal;
-}
-
-.container {
-  text-align: center;
-}
