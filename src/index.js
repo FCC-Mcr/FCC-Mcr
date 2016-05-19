@@ -10,12 +10,16 @@ import App from './components/App';
 // routing components
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
 
+const testPage = () => (<div>test</div>)
 
 const MainRouter = () => (
   (
     <Router history={browserHistory}>
       <Route path="/" component={ App }>
-        <IndexRoute >test</IndexRoute>
+        <IndexRoute component={ testPage }></IndexRoute>
+        <Route path='/resources' component={ testPage }> resources</Route>
+        <Route path='/about' component={ testPage }></Route>
+        <Route path='/contact' component={ testPage }></Route>
       </Route>
     </Router>
   )

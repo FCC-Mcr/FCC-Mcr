@@ -15,3 +15,25 @@ body
   font-size: 16px
   min-width: 320px
   min-height: 420px
+
+// page stuff here for now
+
+.page-content
+  position: relative
+  height: 100%
+  padding-top: $topBar-size
+  ::selection
+    background: $highl-col
+      
+
+@media screen and (min-width: $md-breakpoint)
+  .page-content
+    padding-top: 80px
+    width: 70%
+    float: right
+
+@media screen and (min-width: 1200px)
+
+  .page-content
+    // max width of .main-nav is 350px once reached content should stretch to fit
+    width: calc(100% - 350px)

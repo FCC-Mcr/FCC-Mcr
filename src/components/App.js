@@ -6,14 +6,14 @@ import TopBar from './TopBar';
 /*
   Main Application component
 */
-const App = () => (
+const App = ( props ) => (
   (
     <div className="fill">
       <TopBar />
       <Navigation />
       <div className="container-fluid page-content">
         {
-          //React.cloneElement(this.props.children, this.props)
+          React.cloneElement(props.children, props)
         }
       </div>
     </div>
