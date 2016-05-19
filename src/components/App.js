@@ -1,8 +1,11 @@
 import React from 'react';
-
+// sub components
 import Navigation from '../containers/Navigation';
 import TopBar from './TopBar';
 
+/*
+  Main Application component
+*/
 const App = () => (
   (
     <div className="fill">
@@ -15,6 +18,6 @@ const App = () => (
       </div>
     </div>
   )
-)
+);
 
 export default App;

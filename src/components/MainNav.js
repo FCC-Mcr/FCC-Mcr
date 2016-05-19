@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-// Main Navigation panel
+/*
+  Main Navigation panel with router links
+*/
 // TODO: generate page items
-export default ({ open }) => (
+const MainNav = ({ open }) => (
   (
     <nav className={ open ? "main-nav open" : "main-nav"}>
       <div className="nav nav-stacked">
@@ -23,3 +25,5 @@ export default ({ open }) => (
     </nav>
   )
 );
+
+export default MainNav;

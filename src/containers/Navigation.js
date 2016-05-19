@@ -4,6 +4,10 @@ import { Component } from 'react';
 import MainNav from '../components/MainNav';
 import NavToggle from '../components/NavToggle';
 
+
+/*
+  Global navigation and control element. handles menu open and close.
+*/
 class Navigation extends Component {
 
   constructor(props) {
