@@ -1,3 +1,5 @@
+@import './globals.sass'
+
 // TopBar styles
 // TODO: bring topbar up on scroll up
 .top-bar
@@ -9,7 +11,7 @@
   height: $topBar-size
   border-bottom: 1px solid rgba(black, 0.2)
   z-index: 990
-// NOTE: altering title size is not currently reflected in menu overlay size
+  // NOTE: altering title size is not currently reflected in menu overlay size
 .title-wrap
   user-select: none
   color: $white
@@ -25,11 +27,11 @@
     font-size: 1.5rem
     line-height: 1.9rem
     padding: 0 1rem
-    
+
 .home-title-wrap
   border: 2px solid white
   padding: 0.2rem
-  
+
 @media screen and (min-width: $md-breakpoint)
-  .topBar
+  .top-bar
     display: none
