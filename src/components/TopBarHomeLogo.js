@@ -6,8 +6,8 @@ import React from 'react'
 export default () => (
   (
     <div className="title-wrap home-title-wrap">
-        <span className="home-titles">FreeCodeCamp</span>
-        <span className="home-titles">Manchester</span>
+      <span className="home-titles">FreeCodeCamp</span>
+      <span className="home-titles">Manchester</span>
     </div>
   )
 )
