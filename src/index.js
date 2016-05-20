@@ -7,6 +7,10 @@ import ReactDOM from 'react-dom';
 
 // root components.
 import App from './components/App';
+import AboutPage from './AboutPage';
+import ResourcePage from './ResourcePage';
+import ContactPage from './ContactPage';
+
 // routing components
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
 
@@ -17,9 +21,9 @@ const MainRouter = () => (
     <Router history={browserHistory}>
       <Route path="/" component={ App }>
         <IndexRoute component={ testPage }></IndexRoute>
-        <Route path='/resources' component={ testPage }> resources</Route>
-        <Route path='/about' component={ testPage }></Route>
-        <Route path='/contact' component={ testPage }></Route>
+        <Route path='/resources' component={ ResourcePage }> resources</Route>
+        <Route path='/about' component={ AboutPage }></Route>
+        <Route path='/contact' component={ ContactPage }></Route>
       </Route>
     </Router>
   )
