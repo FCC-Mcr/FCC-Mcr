@@ -7,9 +7,9 @@ import ReactDOM from 'react-dom';
 
 // root components.
 import App from './components/App';
-import AboutPage from './AboutPage';
-import ResourcePage from './ResourcePage';
-import ContactPage from './ContactPage';
+import AboutPage from './components/AboutPage';
+import ResourcePage from './components/ResourcePage';
+import ContactPage from './components/ContactPage';
 
 // routing components
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
