@@ -7,7 +7,7 @@ const AboutPage = () => (
   (
     <div className="fill">
       about page
-      <div>
+      <div className="about-banner">
         banner image here.
       </div>
       <div>

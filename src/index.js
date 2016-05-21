@@ -5,8 +5,9 @@ require('./styles/main.sass') // root stylesheeet - .css, .scss or .sass
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// root components.
+// root components
 import App from './components/App';
+import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ResourcePage from './components/ResourcePage';
 import ContactPage from './components/ContactPage';
@@ -20,7 +21,7 @@ const MainRouter = () => (
   (
     <Router history={browserHistory}>
       <Route path="/" component={ App }>
-        <IndexRoute component={ testPage }></IndexRoute>
+        <IndexRoute component={ HomePage }></IndexRoute>
         <Route path='/resources' component={ ResourcePage }> resources</Route>
         <Route path='/about' component={ AboutPage }></Route>
         <Route path='/contact' component={ ContactPage }></Route>
