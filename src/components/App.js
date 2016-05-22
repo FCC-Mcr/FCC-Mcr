@@ -11,7 +11,7 @@ const App = ( props ) => (
     <div className="fill">
       <TopBar />
       <Navigation />
-      <div className="container-fluid page-content">
+      <div className="page-content">
         {
           React.cloneElement(props.children, props)
         }

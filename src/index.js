@@ -15,7 +15,6 @@ import ContactPage from './components/ContactPage';
 // routing components
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
 
-const testPage = () => (<div>test</div>)
 
 const MainRouter = () => (
   (

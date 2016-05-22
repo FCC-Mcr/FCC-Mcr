@@ -16,6 +16,44 @@ body
   min-width: 320px
   min-height: 420px
 
+
+// home page styles
+.home-page
+  //position: relative
+  background: $main-col
+  padding-top: 20px
+  &::before
+    // covers the padding-top from the page-content
+    position: absolute
+    height: $topBar-size
+    width: 100%
+    top: 0
+    left: 0
+    background: $main-col
+    z-index: 10
+    content: ''
+
+.menu-square-container
+  width: 40%
+  //max-width: 400px // sets whole width
+  .menu-square
+    position: relative
+    padding-bottom: 100% // sets aspect ratio 100% == 1:1
+    background: white
+    span
+      position: absolute
+      display: block
+      color: $main-col
+      font-weight: bold
+      // center
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+
+
+
+
 // About page stuff here for now too
 .about-banner
 
