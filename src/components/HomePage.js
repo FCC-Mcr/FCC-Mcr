@@ -1,14 +1,16 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 /*
   A fixed aspect ratio box on the home page
 */
-const HomePageBox = () => (
+const HomePageBox = ( {content, linkUrl} ) => (
   (
     <div className="menu-square-container">
-      <div className="menu-square">
-        <span>ABOUT US</span>
-      </div>
+      <Link className="fill" to="/about">
+        <div to={ linkUrl } className="menu-square">
+          <span>{ content }</span>
+        </div>
+      </Link>
     </div>
   )
 );
@@ -20,9 +22,8 @@ const HomePageBox = () => (
 const HomePage = () => (
   (
     <div className="fill home-page">
-      <HomePageBox />
-      <HomePageBox />
-
+      <HomePageBox content={"ABOUT US"} linkUrl={"/about"} />
+      
     </div>
   )
 );
