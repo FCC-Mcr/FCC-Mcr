@@ -18,10 +18,12 @@ body
 
 
 // home page styles
+
+$gutter: 0.5rem
+
 .home-page
   //position: relative
   background: $main-col
-  padding-top: 20px
   &::before
     // covers the padding-top from the page-content
     position: absolute
@@ -41,14 +43,51 @@ body
     padding-bottom: 100% // sets aspect ratio 100% == 1:1
     background: white
     span
+      transition: text-shadow 0.1s linear
+      text-transform: uppercase
+      text-align: left
+      color: #B04632
+      font-size: 6vw
+      font-weight: bold
+      font-family: sans-serif
       position: absolute
       display: block
-      color: $main-col
-      font-weight: bold
-      // center
       top: 50%
       left: 50%
       transform: translate(-50%, -50%)
+
+.container
+  width: calc(50% - #{$gutter} *2 - 2px)
+  max-width: calc(400px - #{$gutter} )
+
+.hero
+  position: relative
+  padding-bottom: 100%
+  background: white
+
+.container2
+
+  width: calc(100% - #{$gutter} *2 )
+  max-width: calc(800px + 4px)
+
+.hero2
+  position: relative
+  padding-bottom: 40%
+  background: white
+
+[class*='container']
+  margin: $gutter
+  display: inline-block
+  border: none
+  box-sizing: border-box
+  transition: border 0.01s linear, box-shadow 0.3s linear
+  &:hover
+    border: 1px solid rgba(black, 0.1)
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+    span
+      color: rgba(#B04632, 0.9)
+      text-shadow: 1px 4px 6px rgba(#FFF, 0.5), 0 0 0 #000, 1px 4px 6px rgba(#FFF, 0.5)
+      text-decoration: underline
 
 
 
