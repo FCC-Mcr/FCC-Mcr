@@ -6,26 +6,24 @@ import React from 'react';
 const AboutPage = () => (
   (
     <div className="fill">
-      about page
       <div className="about-banner">
         banner image here.
       </div>
-      <div>
+      <div className="intro">
         <h3>We are...</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing
-          elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis
-          nostrud exercitation ullamco laboris nisi ut aliquip
-          ex ea commodo consequat.
-         </p>
-         <p>
-           Duis aute irure dolor
-           in reprehenderit in voluptate velit esse cillum
-           dolore eu fugiat nulla pariatur. Excepteur sint
-           occaecat cupidatat non proident, sunt in culpa qui
-           officia deserunt mollit anim id est laborum.
-         </p>
+          A collection of coders and Members of the Manchester FreeCodeCamp
+           users group working together to:
+        </p>
+        <ul>
+          <li>Build things.</li>
+          <li>Share Resources.</li>
+          <li>Progress along the FCC curriculum.</li>
+          <li>Learn.</li>
+        </ul>
+        <p>
+          The purpose of this site is to further pursue those goals.
+        </p>
       </div>
     </div>
   )
