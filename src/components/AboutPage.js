@@ -9,7 +9,7 @@ const AboutPage = () => (
       <div className="about-banner">
         banner image here.
       </div>
-      <div className="intro">
+      <div className="content-box">
         <h3>We are...</h3>
         <p>
           A collection of coders and Members of the Manchester FreeCodeCamp

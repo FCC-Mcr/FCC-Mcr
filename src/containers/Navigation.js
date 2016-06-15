@@ -27,7 +27,7 @@ class Navigation extends Component {
     return (
       <div className="fill navigation">
         <NavToggle onClick={ () => this.toggleNav() } />
-        <MainNav open={this.state.navOpen} />
+        <MainNav open={this.state.navOpen} onClick={ () => this.toggleNav() }/>
       </div>
     )
   }
