@@ -7,6 +7,7 @@ const AboutPage = () => (
   (
     <div className="fill">
       <div className="about-banner">
+        <img src="./src/assets/snoo.png"  />
         banner image here.
       </div>
       <div className="content-box">

@@ -13,7 +13,8 @@ const TARGET = process.env.npm_lifecycle_event;  //corresponds to the currently 
 const PATHS = {
   src: path.join(__dirname, 'src'),
   build: path.join(__dirname, 'build'),
-  styles: path.join(__dirname, 'src', 'styles')
+  styles: path.join(__dirname, 'src', 'styles'),
+  assets: path.join(__dirname, 'src', 'assets')
 };
 
 const common = {
@@ -35,13 +36,19 @@ const common = {
   ],
   module: {
     loaders: [
-       {
+       { //babel compiler
          test: /.jsx?$/,
          loaders: ['babel'],
          include: PATHS.src
        },
-       { test: /\.jade$/,
+       { // jade compiler
+         test: /\.jade$/,
          loader: 'jade'
+       },
+       { // image asset loader
+         test: /\.(jpg|png|gif)$/,
+         include: PATHS.assets,
+         loader: 'url'
        }
     ]
   },
