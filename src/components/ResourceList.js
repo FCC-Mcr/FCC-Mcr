@@ -1,8 +1,6 @@
 import React from 'react';
 import ResourceListItem from './ResourceListItem';
 
-
-
 const ResourceList = ({ resources = [] }) => (
   <ul>
     {
