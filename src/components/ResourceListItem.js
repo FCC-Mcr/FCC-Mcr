@@ -9,6 +9,9 @@ const ResourceListItem = ({ item }) => (
       <div className="resource-list-item__description">
         { item.description }
       </div>
+      <div className="resource-list-item__tags">
+        { item.tags.join(', ') }
+      </div>
       <div className="resource-list-item__rating">
         { item.rating }
       </div>

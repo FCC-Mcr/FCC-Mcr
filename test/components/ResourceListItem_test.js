@@ -9,7 +9,8 @@ const input = {
     title: 'test title',
     description: 'test description',
     rating: 5,
-    uri: 'test uri'
+    uri: 'test uri',
+    tags: ['one', 'two']
 };
 
 describe('ResourceListItem component', () => {
@@ -38,6 +39,8 @@ describe('ResourceListItem component', () => {
         expect(wrapper.find('div.resource-list-item__rating').length).to.equal(1,'ResourceListItem should contain a div with class resource-list-item__rating');
         // link
         expect(wrapper.find('div.resource-list-item__link').length).to.equal(1,'ResourceListItem should contain a div with class resource-list-item__link');
+        // tags
+        expect(wrapper.find('div.resource-list-item__tags').length).to.equal(1, 'ResourceListItem should contain a div with class resource-list-item__tags');
       });
       
       it('Puts the right data in the right places', () => {
@@ -45,6 +48,7 @@ describe('ResourceListItem component', () => {
         expect(wrapper.find('div.resource-list-item__description').text()).to.equal(input.description, 'description div did not contain the text as item.description ');
         expect(parseInt(wrapper.find('div.resource-list-item__rating').text())).to.equal(input.rating, 'rating div did not contain the text as item.rating');
         expect(wrapper.find('div.resource-list-item__link').text()).to.equal(input.uri, 'link div did not contain the text as item.uri ');
+        expect(wrapper.find('div.resource-list-item__tags').text()).to.equal(input.tags.join(', '), 'tags div did not contain the text as item.tags ');
       });
     });
     
