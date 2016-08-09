@@ -14,7 +14,7 @@ const inputList = [
 ];
 
 
-describe('ResourceList component', () => {
+describe('<ResourceList /> component', () => {
 
   describe('Structure', () => {
     
@@ -87,11 +87,11 @@ describe('ResourceList component', () => {
       const returned = wrapper.instance().getPossibleTags(inputList);
       const expected = JSON.stringify(['two', 'three', 'one']);
       expect(returned.length).to.equal(3, 'should have retuned an array of three tags');
-      expect(JSON.stringify(returned)).to.equal(expected, 'getPossibleTags did not return an array of unique tags from input Array')
+      expect(JSON.stringify(returned)).to.equal(expected, 'getPossibleTags did not return an array of unique tags from input Array');
     });
     
   });
     
-   
+
     
 });

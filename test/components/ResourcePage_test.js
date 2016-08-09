@@ -7,7 +7,7 @@ import React from 'react';
 import ResourcePage from '../../src/components/ResourcePage';
 
 
-describe('',() => {
+describe('<ResourcePage /> component',() => {
     
     const wrapper = shallow(<ResourcePage />);
 

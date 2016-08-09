@@ -13,7 +13,7 @@ const input = {
     tags: ['one', 'two']
 };
 
-describe('ResourceListItem component', () => {
+describe('<ResourceListItem /> component', () => {
 
   describe('Structure', () => {
     

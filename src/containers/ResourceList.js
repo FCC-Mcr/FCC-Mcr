@@ -12,9 +12,8 @@ class ResourceList extends React.Component {
 
   constructor(props) {
     super(props);
-    this.resources = props.resources || [];
     this.state = {
-      resources: this.resources,
+      resources: this.props.resources || [],
       filters: []
     };
   }
