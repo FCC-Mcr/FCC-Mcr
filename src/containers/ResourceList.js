@@ -85,6 +85,6 @@ class ResourceList extends React.Component {
     );
   }
   
-};
+}
 
 export default ResourceList;

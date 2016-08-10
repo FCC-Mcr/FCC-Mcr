@@ -1,11 +1,9 @@
-/* global it, describe  */
+/* global it, describe, beforeEach  */
 import { expect, assert } from 'chai';
 import { shallow } from 'enzyme';
 import React from 'react';
 
-
 import ResourceList from '../../src/containers/ResourceList';
-import ResourceListItem from '../../src/components/ResourceListItem';
 
 const inputList = [
   {title: 1, rating: 2, tags: ['one','two']},
@@ -14,80 +12,146 @@ const inputList = [
 ];
 
 
-describe('<ResourceList /> component', () => {
+describe('<ResourceList /> Component', () => {
 
   describe('Structure', () => {
     
     let wrapper = shallow(<ResourceList resources={inputList}/>);
     
     it('Renders a ul', () => {
-      assert(wrapper.is('ul'));
+      const actual = wrapper.is('ul');
+      assert(actual,
+      'ResourceList should render a ul element { wrapper.is(ul) to evaluate to true }');
     });
     
-    it('Renders a ResourceListItem element for each Object in json array passed in when there are no state.filters.', () => {
-      const inputLen = inputList.length;
-      expect(wrapper.find('ResourceListItem').length).to.equal(inputLen, 'Did not find correct number of ResourceListItem elements');
+    it('Renders a ResourceListItem element for each item in array passed in { with no state.filters }', () => {
+      const expected = inputList.length;
+      const actual = wrapper.find('ResourceListItem').length;
+      expect(actual).to.equal(expected,
+      'ResourceList should render a ResourceListItem component for each item in inputList { assuming no filters }');
     });
     
     it('Renders a filtered list when state.filters are present', () => {
       wrapper.setState({filters: ['two','three']});
       wrapper.update();
-      expect(wrapper.find('ResourceListItem').length).to.equal(1, 'filtered list should only render one ResourceListItem element');
+      
+      const expected = 1;
+      const actual = wrapper.find('ResourceListItem').length;
+      expect(actual).to.equal(expected,
+      'ResourceList should render a filtered ResourceListItem list. { 1 ResourceListItem should remain after filtering }');
     });
     
     it('Renders a single li element with No Resources Found when no resources are passed in.', () => {
-        wrapper = shallow(<ResourceList />)
-        // list item is rendered.
-        expect(wrapper.find('li').length).to.equal(1, 'One list item expected with empty array as input');
-        // list item has correct text.
-        assert(wrapper.find('li').text(), 'No Resources Found', 'Expected list item to have the text "No Resources Found" when resources array is empty');
+        let expected, actual;
+        
+        wrapper = shallow(<ResourceList />);
+
+        expected = 1;
+        actual = wrapper.find('li').length; 
+        expect(actual).to.equal(expected,
+        'One li item expected with empty array as input');
+        
+        expected = 'No Resources Found';
+        actual = wrapper.find('li').text();
+        expect(actual).to.equal(expected,
+        'Expected li item to have the text "No Resources Found" when resources array is empty');
     });
     
   });
   
   describe('Methods and State', () => {
-    let wrapper = shallow(<ResourceList resources={inputList}/>);
+    let wrapper;
+    
+    beforeEach(() => {
+      wrapper = shallow(<ResourceList resources={inputList}/>);
+    })
+    
+    // STATE
+    it('Has a state.resources field', () => {
+      const actual = wrapper.state().resources;
+      expect(actual).to.exist;
+    });
+    
     it('Stores resources array passed as prop to internal state', () => {
-      expect(wrapper.state('resources')).to.equal(inputList, 'state.resources did not match input resources prop array')
+      const expected = inputList;
+      const actual = wrapper.state('resources');
+      expect(actual).to.equal(expected,
+      'ResourceList state.resources should match input resources prop array on creation.')
     });
     
+    it('Has a state.filters stores an array', () => {
+      let actual;
+      
+      actual = wrapper.state().filters;
+      expect(actual).to.exist
+      
+      actual = Array.isArray(actual);
+      const expected = true;
+      expect(actual).to.equal(expected,
+      'state.filters should be an array')
+    });
+    
+    // METHODS
     it('Has a handleSort method that sorts state.resources by given field and direction', () => {
-      wrapper.instance().handleSort('ASC', 'rating');
+      wrapper.instance().handleSort('DESC', 'rating');
       wrapper.update();
-      const expected = JSON.stringify(inputList.sort( (a,b) => a.rating - b.rating) );
-      expect(JSON.stringify(wrapper.state().resources)).to.equal(expected);
+      
+      const expected = inputList.sort( (a,b) => b.rating - a.rating); // manually sorted
+      const actual = wrapper.state().resources;
+      expect(actual).to.deep.equal(expected,
+      `ResourceLists handleSort() method should sort state.resources DESCENDING by rating when called with ('DESC', 'rating') `);
     });
     
-    it('Has a state.filters field that stores current filters words', () => {
-      expect(wrapper.state().filters).to.exist
-    });
-    
-    it('Has a HandleToggleFilter method that adds a filter word to state.filter if it isnt already present and removes it if it is.', () => {
+    it('Has a handleToggleFilter method that adds a filter word to state.filter if it isnt already present and removes it if it is.', () => {
+      let expected, actual;
+
       wrapper.instance().handleToggleFilter('test word');
       wrapper.update();
-      expect(wrapper.state().filters).to.contain('test word', 'new filter word was not added to state.filters');
+      
+      expected = 'test word';
+      actual = wrapper.state().filters
+      expect(actual).to.contain(expected,
+      'handleToggleFilter should have added the test word to state.filters');
       
       wrapper.instance().handleToggleFilter('test word');
       wrapper.update();
-      expect(wrapper.state().filters).to.not.contain('test word', 'filter word was not removed from state.filters');
+      
+      //expect to not find
+      actual = wrapper.state().filters
+      expect(actual).to.not.contain('test word', 'handleToggleFilter should have removed the test word from state.filters');
     });
     
-    it('Has a filterResources method that takes an array of resources and filters whose tags contain resources that match state.filters filters', () => {
+    it('Has a filterResources method that takes an array of resources and filters it to those that have tags that match state.filters filters', () => {
       const inputArray = [{id: 1, tags: [1]}, {id: 2, tags: [1,2]}, {id:3, tags:[2]}];
+      let expected, actual;
       // no filters should return original array
-      expect(wrapper.instance().filterResources(inputArray)).to.equal(inputArray);
+      expected = inputArray;
+      actual = wrapper.instance().filterResources(inputArray);
+      expect(actual).to.equal(expected,
+      'Passing an array to filterResources method when there are no filters should return the original array.');
+      
       // filters of [1, 2] should return only id:2 object
-      const expected = JSON.stringify([{id: 2, tags: [1,2]}])
       wrapper.setState({filters: [1,2]});
       wrapper.update();
-      expect(JSON.stringify(wrapper.instance().filterResources(inputArray))).to.equal(expected);
+      
+      expected = [ {id: 2, tags: [1, 2]} ]
+      actual = wrapper.instance().filterResources(inputArray);
+      expect(actual).to.deep.members(expected,
+      'Passing an array to filterResources method with state.filters: [1,2] should return a filtered array.');
     });
     
     it('Has a getPossibleTags method that takes an array of resource objects and returns an array of unique filter tags', () => {
-      const returned = wrapper.instance().getPossibleTags(inputList);
-      const expected = JSON.stringify(['two', 'three', 'one']);
-      expect(returned.length).to.equal(3, 'should have retuned an array of three tags');
-      expect(JSON.stringify(returned)).to.equal(expected, 'getPossibleTags did not return an array of unique tags from input Array');
+      let expected, actual;
+      
+      actual = wrapper.instance().getPossibleTags(inputList).length;
+      expected = 3;
+      expect(actual).to.equal(3,
+      'should have retuned an array of three tags');
+      
+      actual = wrapper.instance().getPossibleTags(inputList)
+      expected = ['two', 'three', 'one'];
+      expect(actual).to.members(expected,
+      'getPossibleTags did not return an array of unique tags from input Array');
     });
     
   });
