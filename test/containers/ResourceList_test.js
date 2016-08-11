@@ -19,12 +19,16 @@ describe('<ResourceList /> Component', () => {
     let wrapper = shallow(<ResourceList resources={inputList}/>);
     
     it('Renders a ul', () => {
-      const actual = wrapper.is('ul');
-      assert(actual,
-      'ResourceList should render a ul element { wrapper.is(ul) to evaluate to true }');
+      const actual = wrapper.find('ul.resource-list').length;
+      const expected = 1;
+      expect(actual).to.equal(expected,
+      'ResourceList should render a ul element with class resourceList.');
     });
     
     it('Renders a ResourceListItem element for each item in array passed in { with no state.filters }', () => {
+      
+      wrapper.setState({filters: []});
+      
       const expected = inputList.length;
       const actual = wrapper.find('ResourceListItem').length;
       expect(actual).to.equal(expected,
@@ -44,8 +48,8 @@ describe('<ResourceList /> Component', () => {
     it('Renders a single li element with No Resources Found when no resources are passed in.', () => {
         let expected, actual;
         
-        wrapper = shallow(<ResourceList />);
-
+        wrapper.setState({resources: []});
+        
         expected = 1;
         actual = wrapper.find('li').length; 
         expect(actual).to.equal(expected,
@@ -64,7 +68,7 @@ describe('<ResourceList /> Component', () => {
     
     beforeEach(() => {
       wrapper = shallow(<ResourceList resources={inputList}/>);
-    })
+    });
     
     // STATE
     it('Has a state.resources field', () => {
@@ -76,19 +80,19 @@ describe('<ResourceList /> Component', () => {
       const expected = inputList;
       const actual = wrapper.state('resources');
       expect(actual).to.equal(expected,
-      'ResourceList state.resources should match input resources prop array on creation.')
+      'ResourceList state.resources should match input resources prop array on creation.');
     });
     
     it('Has a state.filters stores an array', () => {
       let actual;
       
       actual = wrapper.state().filters;
-      expect(actual).to.exist
+      expect(actual).to.exist;
       
       actual = Array.isArray(actual);
       const expected = true;
       expect(actual).to.equal(expected,
-      'state.filters should be an array')
+      'state.filters should be an array');
     });
     
     // METHODS
@@ -109,7 +113,7 @@ describe('<ResourceList /> Component', () => {
       wrapper.update();
       
       expected = 'test word';
-      actual = wrapper.state().filters
+      actual = wrapper.state().filters;
       expect(actual).to.contain(expected,
       'handleToggleFilter should have added the test word to state.filters');
       
@@ -117,7 +121,7 @@ describe('<ResourceList /> Component', () => {
       wrapper.update();
       
       //expect to not find
-      actual = wrapper.state().filters
+      actual = wrapper.state().filters;
       expect(actual).to.not.contain('test word', 'handleToggleFilter should have removed the test word from state.filters');
     });
     
@@ -134,7 +138,7 @@ describe('<ResourceList /> Component', () => {
       wrapper.setState({filters: [1,2]});
       wrapper.update();
       
-      expected = [ {id: 2, tags: [1, 2]} ]
+      expected = [ {id: 2, tags: [1, 2]} ];
       actual = wrapper.instance().filterResources(inputArray);
       expect(actual).to.deep.members(expected,
       'Passing an array to filterResources method with state.filters: [1,2] should return a filtered array.');
@@ -142,13 +146,13 @@ describe('<ResourceList /> Component', () => {
     
     it('Has a getPossibleTags method that takes an array of resource objects and returns an array of unique filter tags', () => {
       let expected, actual;
-      
+      wrapper.setState({filters: []});
       actual = wrapper.instance().getPossibleTags(inputList).length;
       expected = 3;
       expect(actual).to.equal(3,
       'should have retuned an array of three tags');
       
-      actual = wrapper.instance().getPossibleTags(inputList)
+      actual = wrapper.instance().getPossibleTags(inputList);
       expected = ['two', 'three', 'one'];
       expect(actual).to.members(expected,
       'getPossibleTags did not return an array of unique tags from input Array');

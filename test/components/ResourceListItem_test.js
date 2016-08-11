@@ -20,35 +20,75 @@ describe('<ResourceListItem /> component', () => {
     const wrapper = shallow(<ResourceListItem item={input}/>);
     
     it('Renders a li element with class resource-list-item', () => {
-      assert(wrapper.is('li'), 'ResourceListItem did not render a li element');
-      assert(wrapper.is('li.resource-list-item'), 'ResourceListItem li element did not have the class resource-list-item');
+      let actual;
+      
+      actual = wrapper.is('li');
+      assert(actual,
+      'ResourceListItem did not render a li element');
+      
+      actual = wrapper.is('li.resource-list-item');
+      assert(actual,
+      'ResourceListItem li element did not have the class resource-list-item');
     });
     
-    it('has an item prop', () => {
-      expect(wrapper.instance().props.item).to.exist
+    it('Has an item prop', () => {
+      const actual = wrapper.instance().props.item;
+      expect(actual).to.exist;
     });
     
     describe('contents of list element', () => {
       
       it('Renders the right parts', () => {
-        // title
-        expect(wrapper.find('div.resource-list-item__title').length).to.equal(1, 'ResourceListItem should contain a div with class resource-list-item__title');
+        const expected = 1;
+        let actual;
+        
+        //title
+        actual = wrapper.find('div.resource-list-item__title').length;
+        expect(actual).to.equal(expected, 'ResourceListItem should render a div with class resource-list-item__title');
+        
         // description
-        expect(wrapper.find('div.resource-list-item__description').length).to.equal(1,'ResourceListItem should contain a div with class resource-list-item__description');
+        actual = wrapper.find('div.resource-list-item__description').length;
+        expect(actual).to.equal(expected, 'ResourceListItem should render a div with class resource-list-item__description');
+        
         // rating
-        expect(wrapper.find('div.resource-list-item__rating').length).to.equal(1,'ResourceListItem should contain a div with class resource-list-item__rating');
+        actual = wrapper.find('div.resource-list-item__rating').length;
+        expect(actual).to.equal(expected,'ResourceListItem should render a div with class resource-list-item__rating');
+        
         // link
-        expect(wrapper.find('div.resource-list-item__link').length).to.equal(1,'ResourceListItem should contain a div with class resource-list-item__link');
+        actual = wrapper.find('div.resource-list-item__link').length;
+        expect(actual).to.equal(expected, 'ResourceListItem should render a div with class resource-list-item__link');
         // tags
-        expect(wrapper.find('div.resource-list-item__tags').length).to.equal(1, 'ResourceListItem should contain a div with class resource-list-item__tags');
+        actual = wrapper.find('div.resource-list-item__tags').length;
+        expect(actual).to.equal(expected, 'ResourceListItem should render a div with class resource-list-item__tags');
       });
       
       it('Puts the right data in the right places', () => {
-        expect(wrapper.find('div.resource-list-item__title').text()).to.equal(input.title, 'title div did not contain the text as item.title ');
-        expect(wrapper.find('div.resource-list-item__description').text()).to.equal(input.description, 'description div did not contain the text as item.description ');
-        expect(parseInt(wrapper.find('div.resource-list-item__rating').text())).to.equal(input.rating, 'rating div did not contain the text as item.rating');
-        expect(wrapper.find('div.resource-list-item__link').text()).to.equal(input.uri, 'link div did not contain the text as item.uri ');
-        expect(wrapper.find('div.resource-list-item__tags').text()).to.equal(input.tags.join(', '), 'tags div did not contain the text as item.tags ');
+        let actual, expected;
+        
+        // title
+        actual = wrapper.find('div.resource-list-item__title').text();
+        expected = input.title;
+        expect(actual).to.equal(expected, 'title div should contain the text as item.title ');
+        
+        // description
+        actual = wrapper.find('div.resource-list-item__description').text();
+        expected = input.description;
+        expect(actual).to.equal(expected, 'description div should contain the text as item.description ');
+        
+        // rating
+        actual = wrapper.find('div.resource-list-item__rating').text();
+        expected = input.rating;
+        expect(actual).to.not.deep.equal(expected, 'rating div should contain the text as item.rating');
+        
+        //link
+        actual = wrapper.find('div.resource-list-item__link').text();
+        expected = input.uri;
+        expect(actual).to.equal(expected, 'link div should contain the text as item.uri ');
+        
+        // tags
+        actual = wrapper.find('div.resource-list-item__tags').text();
+        expected = input.tags.join(', ');
+        expect(actual).to.equal(expected, 'tags div should contain the text as item.tags ');
       });
     });
     

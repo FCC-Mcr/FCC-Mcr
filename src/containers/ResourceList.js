@@ -1,5 +1,6 @@
 import React from 'react';
 import ResourceListItem from '../components/ResourceListItem';
+import FilterDisplay from '../components/FilterDisplay';
 
 /*
   Resource List
@@ -16,6 +17,7 @@ class ResourceList extends React.Component {
       resources: this.props.resources || [],
       filters: []
     };
+    this.handleToggleFilter = this.handleToggleFilter.bind(this);
   }
   
   /*
@@ -23,6 +25,7 @@ class ResourceList extends React.Component {
     @ resources: Array of resources
   */
   getPossibleTags(resources) {
+    if(resources.length < 1){ return [] }
     let all = resources.reduce((acc,curr) => [...acc,...curr.tags] , []);
     return Array.from(new Set(all));
   }
@@ -74,7 +77,12 @@ class ResourceList extends React.Component {
   render() {
     const filteredResources = this.filterResources(this.state.resources);
     return (
-      <ul>
+      
+      <div>
+      
+      <FilterDisplay allFilters={this.getPossibleTags(this.state.resources)} currentFilters={this.state.filters} toggleFilter={ this.handleToggleFilter }/>
+
+      <ul className="resource-list">
       {
         filteredResources.length >= 1 ? filteredResources.map( listItem => (
           <ResourceListItem item={ listItem }/>
@@ -82,6 +90,7 @@ class ResourceList extends React.Component {
           : <li>No Resources Found</li>
       }
       </ul>
+      </div>
     );
   }
   
