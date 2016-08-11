@@ -11,7 +11,7 @@ import NavToggle from '../components/NavToggle';
 class Navigation extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       navOpen: false
     };
@@ -20,7 +20,7 @@ class Navigation extends Component {
   toggleNav() {
     this.setState({
       navOpen: !this.state.navOpen
-    })
+    });
   }
 
   render() {
@@ -29,7 +29,7 @@ class Navigation extends Component {
         <NavToggle onClick={ () => this.toggleNav() } />
         <MainNav open={this.state.navOpen} onClick={ () => this.toggleNav() }/>
       </div>
-    )
+    );
   }
 }
 

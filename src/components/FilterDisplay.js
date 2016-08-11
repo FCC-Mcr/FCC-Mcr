@@ -13,8 +13,9 @@ const FilterDisplay = ({ allFilters=[], currentFilters=[], toggleFilter }) => (
   
   <ul>
     {
-      allFilters.map( (item) => (
-        <FilterDisplayItem 
+      allFilters.map( (item, i) => (
+        <FilterDisplayItem
+          key={i}
           item={ item }
           toggleFilter={ toggleFilter }
           active={ currentFilters.indexOf(item) !== -1 }
