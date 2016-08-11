@@ -168,11 +168,16 @@ $gutter: 0.5rem
     padding: $spacer
     margin: $spacer
     background: $off-white
-    
+
+.resource-list-item
+ border-bottom: 1px solid grey 
+
 /* filter Tag display */    
 [class*='filter-display__tag']
   display: inline-block
   padding: 0.3rem 0.5rem
+  user-select: none
+  cursor: pointer
 
 .filter-display__tag--active
   background: $highl-col
