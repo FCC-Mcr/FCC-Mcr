@@ -18,9 +18,9 @@ const PATHS = {
 };
 
 const common = {
-  entry: {
-    src: PATHS.src
-  },
+  entry: [
+    'whatwg-fetch', PATHS.src
+  ],
   output: {
     path: PATHS.build,
     filename: 'bundle.js'

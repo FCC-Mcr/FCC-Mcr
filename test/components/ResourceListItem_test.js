@@ -9,7 +9,7 @@ const input = {
     title: 'test title',
     description: 'test description',
     rating: 5,
-    uri: 'test uri',
+    url: 'test uri',
     tags: ['one', 'two']
 };
 
@@ -82,7 +82,7 @@ describe('<ResourceListItem /> component', () => {
         
         //link
         actual = wrapper.find('div.resource-list-item__link').text();
-        expected = input.uri;
+        expected = input.url;
         expect(actual).to.equal(expected, 'link div should contain the text as item.uri ');
         
         // tags

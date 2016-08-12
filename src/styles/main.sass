@@ -169,7 +169,34 @@ $gutter: 0.5rem
     background: $off-white
 
 .resource-list-item
- border-bottom: 1px solid grey 
+  padding: 0.3rem 0.5rem
+  border-bottom: 1px solid grey
+  border-left: 0rem transparent solid
+  transition: border-left 0.2s ease
+  &:hover
+    border-left: 0.3rem $highl-col solid
+  div
+    box-sizing: border-box
+    padding: 0.1rem
+  
+ 
+.resource-list-item__title
+  display: inline-block
+  font-weight: bold
+
+.resource-list-item__rating
+  padding-left: 0.5rem
+  display: inline-block
+  &:after
+    font-size: 120%
+    vertical-align: text-bottom
+    color: gold
+    content: '★'
+    
+.resource-list-item__tags
+  font-size: 80%
+  color: lighten(black, 50%)
+
 
 /* filter Tag display */    
 [class*='filter-display__tag']

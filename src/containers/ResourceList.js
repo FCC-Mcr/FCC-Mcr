@@ -1,6 +1,7 @@
 import React from 'react';
 import ResourceListItem from '../components/ResourceListItem';
 import FilterDisplay from '../components/FilterDisplay';
+import 'whatwg-fetch';
 
 /*
   Resource List
@@ -18,6 +19,31 @@ class ResourceList extends React.Component {
       filters: []
     };
     this.handleToggleFilter = this.handleToggleFilter.bind(this);
+  }
+  
+  /*
+    is using fetch to pull resourcedata from 
+  */
+  componentDidMount() {
+    const uri = 'https://fcc-manchester.firebaseio.com/resources.json';
+
+    fetch(uri,{	method: 'get'})
+    .then( (response) => {
+      return response.json()
+    })
+    .then((json) => {
+      let obj = json;
+      let items = Object.keys(obj).map( key => obj[key] );
+      
+      items = items.map((item) => {
+        return {...item,
+      tags: item.tags.split(', ').filter((tag) => tag.length)}
+      });
+      //console.log(items)
+      this.setState({resources: items})
+
+    });
+    
   }
   
   /*
