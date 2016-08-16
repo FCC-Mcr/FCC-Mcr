@@ -35,7 +35,7 @@ const AboutPage = () => (
         </a>
       </div>
       <div className="content-box--right">
-        <img className="about-image" src="/src/assets/first.jpg" alt="FCCMrc study group in session at Code-Up"></img>
+        <img className="about-image" src="/src/assets/first.jpg" alt="FCC study group in session at Code-Up"></img>
       </div>
       </div>
     </div>
