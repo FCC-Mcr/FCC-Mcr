@@ -55,9 +55,12 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.0",
+    "react-router": "^2.6.1",
     "redux": "^3.0.4",
     "whatwg-fetch": "^1.0.0"
   }
