@@ -1,226 +1,24 @@
-// This needs refactoring.
+// TOOLS
+
 @import './resets/reset.css'
 @import './resets/normalize.css'
 
-@import './globals.sass'
-// global Nav styles
-@import './topBarStyles.sass'
-@import './navToggle.sass'
-@import './mainNavigation.sass'
+// 01 BASE
 
-html, body, #root, .fill
-  height: 100%
-  width: 100%
+@import './01-base/globals.sass'
+@import './01-base/base.sass'
+@import './01-base/page-content.sass'
 
-body
-  font-size: 16px
-  min-width: 320px
-  min-height: 420px
+// 02 COMPONENTS
 
-// home page styles
+@import './02-components/topBarStyles.sass'
+@import './02-components/navToggle.sass'
+@import './02-components/mainNavigation.sass'
+@import './02-components/filter-display.sass'
 
-$gutter: 0.5rem
-
-.home-page
-  //position: relative
-  background: $main-col
-  padding-top: 20px
-  padding-left: 10px
-
-  &::before
-    // covers the padding-top from the page-content
-    position: absolute
-    height: $topBar-size
-    width: 100%
-    top: 0
-    left: 0
-    background: $main-col
-    z-index: 10
-    content: ''
-
-
-.home-wrap
-  box-sizing: border-box
-  margin: 0 auto
-  text-align: center
-  width: 100%
-  max-width: 1150px
-  padding: $gutter
-
-[class*='box-']
-  margin: $gutter
-  display: inline-block
-  box-sizing: border-box
-  transition: border 0.01s, box-shadow 0.3s
-  cursor: pointer
-
-  .hero
-    position: relative
-    background: white
-    span
-      position: absolute
-      display: block
-      text-transform: uppercase
-      text-align: left
-      color: $main-col
-      font-weight: bold
-      font-family: sans-serif
-      // center in box
-      top: 50%
-      left: 50%
-      transform: translate(-50%, -50%)
-      transition: text-shadow 0.1s linear
-      user-select: none
-
-      
-.box-square, .box-wide      
-  &:hover
-    border: 1px solid rgba(black, 0.1)
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
-    span
-      color: rgba($main-col, 0.9)
-      // simulates a hollow look
-      text-shadow: 1px 4px 6px rgba(white, 0.5), 0 0 0 black, 1px 4px 6px rgba(white, 0.5)
-      text-decoration: underline
-
-.box-square
-  width: calc(50% - #{$gutter} *2 - 4px)
-  .hero
-    padding-bottom: 100%
-
-.box-wide
-  width: calc(100% - #{$gutter} *2 )
-  .hero
-    padding-bottom: 40%
-    user-select: none
-    
-
-.box-title
-  display: none
-  width: calc(60% - #{$gutter} *2 - 4px)
-  box-sizing: border-box
-  border: 6px solid white
-  cursor: default
-
-  .hero
-    background: none
-    padding-bottom: 40%
-    span
-      color: white
-
-@media(min-width: 900px)
-  
-  [class*='box'] span
-    //font-size: 60px
-  
-  .box-square
-    // change to 30% share
-    width: calc(30% - #{$gutter} *2 - 4px)
-    
-  .box-title
-    display: inline-block
-    .hero
-      padding-bottom: 47.4%
-    
-  .box-wide
-    // change to 60% share
-    width: calc(60% - #{$gutter} *2 - 4px)
-    .hero
-      padding-bottom: 48%
+@import './02-components/home.sass'
+@import './02-components/about.sass'
+@import './02-components/contact.sass'
 
 
 
-// About page stuff here for now too
-.about-banner
-  margin: $spacer*2 auto
-  height: 300px
-  // temp color - replace with img
-  background: $off-white
-  text-align: center
-  overflow: hidden
-  img
-    max-height: 100%
-    max-width: 100%
-
-// contact page stuff
-.contact-links
-  margin: $spacer*2 auto
-  text-align: center
-  a:hover
-    text-decoration: none
-  i
-    display: block
-    font-size: 4em
-    
-    
-
-// page stuff here for now
-
-.page-content
-  position: relative
-  height: 100%
-  padding-top: $topBar-size
-  ::selection
-    background: $highl-col
-
-  .content-box
-    padding: $spacer
-    margin: $spacer
-    background: $off-white
-
-.resource-list-item
-  padding: 0.3rem 0.5rem
-  border-bottom: 1px solid grey
-  border-left: 0rem transparent solid
-  transition: border-left 0.2s ease
-  &:hover
-    border-left: 0.3rem $highl-col solid
-  div
-    box-sizing: border-box
-    padding: 0.1rem
-  
- 
-.resource-list-item__title
-  display: inline-block
-  font-weight: bold
-
-.resource-list-item__rating
-  padding-left: 0.5rem
-  display: inline-block
-  &:after
-    font-size: 120%
-    vertical-align: text-bottom
-    color: gold
-    content: '★'
-    
-.resource-list-item__tags
-  font-size: 80%
-  color: lighten(black, 50%)
-
-
-/* filter Tag display */    
-[class*='filter-display__tag']
-  display: inline-block
-  padding: 0.3rem 0.5rem
-  user-select: none
-  cursor: pointer
-
-
-
-.filter-display__tag--active
-  background: $highl-col
-  &:after
-    content: '✔'
-
-
-@media screen and (min-width: $md-breakpoint)
-  .page-content
-    padding-top: 80px
-    width: 70%
-    float: right
-
-@media screen and (min-width: 1200px)
-
-  .page-content
-    // max width of .main-nav is 350px once reached content should stretch to fit
-    width: calc(100% - 350px)

@@ -1,0 +1,49 @@
+.page-content
+  position: relative
+  height: 100%
+  padding-top: $topBar-size
+  ::selection
+    background: $highl-col
+
+  .content-box
+    display: flex
+    flex-wrap: wrap
+    padding: $spacer
+    margin: $spacer
+    background: $off-white
+    
+  .content-box--left
+    flex: 2
+    min-width: 320px
+    
+  .content-box--right
+    // flex: 1
+
+.resource-list-item
+  padding: 0.3rem 0.5rem
+  border-bottom: 1px solid grey
+  border-left: 0rem transparent solid
+  transition: border-left 0.2s ease
+  &:hover
+    border-left: 0.3rem $highl-col solid
+  div
+    box-sizing: border-box
+    padding: 0.1rem
+  
+ 
+.resource-list-item__title
+  display: inline-block
+  font-weight: bold
+
+.resource-list-item__rating
+  padding-left: 0.5rem
+  display: inline-block
+  &:after
+    font-size: 120%
+    vertical-align: text-bottom
+    color: gold
+    content: '★'
+    
+.resource-list-item__tags
+  font-size: 80%
+  color: lighten(black, 50%)
