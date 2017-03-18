@@ -1,0 +1,19 @@
+{
+  "name": "fcc-manchester-website",
+  "version": "0.0.1",
+  "description": "Open to pull requests from FreeCodeCamp Manchester users.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JD-aka-Techy/FCC-Mcr-website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JD-aka-Techy/FCC-Mcr-website/issues"
+  },
+  "homepage": "https://github.com/JD-aka-Techy/FCC-Mcr-website#readme"
+}
