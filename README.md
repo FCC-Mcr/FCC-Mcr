@@ -4,29 +4,39 @@ A Webpack and React based project for the FCC Manchester website. The aim of thi
 
 ## Whats Included?
 
-- [Autoprefixer](https://www.npmjs.com/package/autoprefixer) `^6.3.6`
-- [node-sass](https://github.com/sass/node-sass) `^3.4.2`
-- [Webpack](https://webpack.github.io/) `^1.12.15`
-- [Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html) `^1.14.1`
-- [sass-loader](https://github.com/webpack-contrib/sass-loader) `6.0.2`
-- [css-loader](https://github.com/webpack-contrib/css-loader) `^0.26.2`
-- [gh-pages](https://www.npmjs.com/package/gh-pages) `^0.12.0`
-- [style Loader](https://github.com/webpack-contrib/style-loader) `^0.13.2`
-- [postcss-loader](https://github.com/postcss/postcss-loader) `^1.3.3`
-- [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin) `^2.1.0`
+- [Webpack](https://webpack.github.io/)
+- [node-sass](https://github.com/sass/node-sass)
+- [Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html)
+- [sass-loader](https://github.com/webpack-contrib/sass-loader)
+- [css-loader](https://github.com/webpack-contrib/css-loader)
+- [gh-pages](https://www.npmjs.com/package/gh-pages)
+- [style Loader](https://github.com/webpack-contrib/style-loader)
+- [postcss-loader](https://github.com/postcss/postcss-loader)
+- [extract-text-webpack-plugin](https://github.com/webpack-contrib/extract-text-webpack-plugin)
 
 ## Prerequisites
-- node `^4.2.0`
-- npm `^3.0.0`
+- node `^4.7.0`
+- npm `^2.0.0`
 
 ## Installation
+
+Enter the following commands in your shell / terminal.  If you're on Windows, you'll need to use [Git BASH](https://git-for-windows.github.io/) or similar.
 
 ```
 $ git clone https://github.com/JD-aka-Techy/FCC-Mcr-website.git
 $ cd FCC-Mcr-website
 $ npm install
-$ rm -rf .git && git init         # start a fresh git repo
 ```
+
+## Usage
+
+Enter the following command to start the development server:
+
+```
+$ npm run dev
+```
+
+You can now browse your local copy of the site from `http://localhost:8080`. Any changes you save to index.html or files kept in `/src` will be detected by the server and the browser will refresh to show your changes (unless your code cannot compile - check your terminal output or console for errors!).
 
 ## Project Structure
 
@@ -34,7 +44,7 @@ $ rm -rf .git && git init         # start a fresh git repo
 .
 ├── LICENSE.md
 ├── README.md
-├── build                         # What we will deploy to gh-pages        
+├── build                         # Output from the build process - ready for deployment to gh-pages        
 │   ├── bundle.js
 │   ├── index.html
 │   └── styles.css
@@ -42,8 +52,8 @@ $ rm -rf .git && git init         # start a fresh git repo
 ├── package.json                  # Included list of dependencies and scripts
 ├── postcss.config.js
 ├── src
-│   └── index.js                  # Entry point for Webpack. Require youre stylesheet here
-├── styles                        # Webpack will work on .css, .sass or .scss files here
+│   └── index.js                  # Entry point for Webpack.  You can also require / import static assets (such as stylesheets) here.
+├── styles                        # Edit any .css, .sass or .scss files here
 │   └── main.scss
 ├── webpack.dev.js                # Webpack config for our dev server
 └── webpack.prod.js               # Webpack config that builds our site
@@ -57,10 +67,10 @@ $ npm run build           # Generates minified bundle.js, styles.css and index.h
 $ npm run deploy          # Publish the files in /build to a gh-pages branch
 ```
 
-### Configuration Tips
+### Wepack Configuration
 The development setup and the build setup are maintained in `webpack.dev.js` and `webpack.prod.js` files. The `webpack.dev.js` config sets up the dev server for us and injects the CSS inline via the style loader. The `webpack.prod.js` config builds the website in the `/build` directory using the extract-text-webpack-plugin to create a `.css` file in the `/build` directory.
 
-`watchContentBase: true` watches for any changes made to the styles and index.html and will automatically refresh the browser.
+`watchContentBase: true` watches for any changes made to static files in the root directory eg. (index.html) and will automatically refresh the browser.
 
 ## Contributions
 Open to pull requests from FreeCodeCamp Manchester users.
