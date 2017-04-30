@@ -83,24 +83,38 @@ nav{
       text-align: justify;
       width: 80%;
       max-width: 300px;
+      line-height: 1.4;
     }
   }
 }
+.contact{
+  background: #D46853;
+  color: white;
+  text-align: center;
+}
 
-@media (max-width: 768px){
+@media (max-width: 767px){
   .opening{
     p{
-      width: 90%;
+      width: 80%;
     }
   }
   .meetups{
     h3{
-      width: 90%;
+      width: 80%;
     }
+  }
+  .spaceport{
+    height: 70vw;
   }
   .about{
     div{
-      height: 70vw;
+      &:first-child{
+        height: 70vw;
+      }
+      &:nth-child(2){
+        height: auto;
+      }
       p{
         max-width: 70%;
       }

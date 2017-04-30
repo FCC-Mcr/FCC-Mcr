@@ -1,0 +1,55 @@
+/*------------------------------------*\
+  # UTILITIES
+\*------------------------------------*/
+
+/**
+ * TABLE OF CONTENTS
+ *
+ *
+ *
+ */
+
+
+
+
+// functions
+@function quarter($inuit-number) {
+    @return round($inuit-number / 4);
+}
+
+@function halve($inuit-number) {
+    @return round($inuit-number / 2);
+}
+
+@function double($inuit-number) {
+    @return round($inuit-number * 2);
+}
+
+@function quadruple($inuit-number) {
+    @return round($inuit-number * 4);
+}
+
+/**
+ * returns color hash from site pallete
+**/
+@function color($color) {
+  @return map-get($pallete, $color);
+}
+
+// mixins
+
+/**
+ * set height and width of element.
+**/
+@mixin size($width, $height: $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin font($font) {
+   font-family: map-get($font-families, $font);
+   font-weight: map-get($font-weights, $font);
+   @if($font == 'main-italic') {
+    font-style: italic;
+  }
+}
