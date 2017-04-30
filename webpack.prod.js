@@ -7,13 +7,14 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
+    publicPath: './',
     filename: 'bundle.js'
   },
   module:{
     rules: [
       {
         test: /\.(jpg|png|svg)$/,
-          use: 'file-loader?name=[name].[ext]&publicPath=./&outputPath=/img/'
+          use: 'file-loader?name=[name].[ext]&outputPath=/img/'
       },
       {
         test: /\.sass$|\.scss$/,
