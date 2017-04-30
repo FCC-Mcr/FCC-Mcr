@@ -1,125 +1,226 @@
 $main:      #b04632;
 $white:     #ffffff;
+$font:      nunito sans;
 
-body {
-  background: $main;
-  color: $white;
-  font-family: 'Nunito Sans', sans-serif;
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 
-h1 {
-  $char-width: 85px;
-
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  flex-wrap: wrap;
-
-  border: 8px solid $white;
-  font-size: 6em;
-  font-weight: normal;
-  margin: 20vh auto 0 auto;
-  padding: 18px 14px;
-  width: $char-width * 3;
-
-  div {
-    text-align: center;
-    width: $char-width;
+h1, h2, h3, h4, h5, h6, p, a{
+  font-family: $font;
+  font-weight: 500;
+}
+a{
+  color: #5FBAD7;
+}
+body{
+  margin: 0;
+}
+nav{
+  text-align: center;
+  background: $main;
+  height: 100px;
+  svg{
+    width: 70px;
   }
 }
+.opening{
+  padding: 14% 0px;
+  text-align: center;
+  width: 100%;
+  h2{
+    margin-top: 0;
+  }
+  p{
+    width: 50%;
+    text-align: justify;
+    display: inline-block;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+}
+.meetups{
+  background: #DE5E45;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 14% 0px;
+  div{
+    h1{
+      margin-top: 0;
+    }
+    h6{
+      width: 90%;
+      max-width: 645px;
+      display: inline-block;
+      line-height: 1.4;
+      margin-top: 0;
+    }
+  }
 
-p {
-  font-family: 'Source Sans Pro', monospace;
-  font-size: 2em;
+}
+.spaceport{
+  background: rgba(45, 164, 201, 0.75);
+  background-size: cover;
+  background-position: center center;
+  min-height: 200px;
+  height: 50vw;
+  max-height: 600px;
+  svg{
+    width: 50%;
+  }
+}
+.about{
+  background: #FF7E65;
+  div{
+  flex: 1 1 300px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45vw;
+    &:first-child{
+    background: #FF7E65;
+    color: white;
+    align-self: stretch;
+    }
+    &:nth-child(2){
+    background: white;
+    }
+    p{
+      text-align: justify;
+      width: 80%;
+      max-width: 300px;
+      line-height: 1.4;
+      margin: 0;
+    }
+  }
+}
+.contact{
+  background: #D46853;
+  color: white;
   text-align: center;
 }
-
-.blink {
-  font-weight: 100;
-  font-size: 30px;
-  color: #2E3D48;
-  -webkit-animation: 1s blink step-end infinite;
-  -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
-  animation: 1s blink step-end infinite;
-}
-
-@keyframes "blink" {
-  from, to {
-    color: transparent;
+.contact{
+  padding: 120px 0 80px 0;
+  h1{
+    margin: 0 0 70px 0;
   }
-  50% {
-    color: $white;
-  }
-}
-
-@-moz-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: $white;
+  .organisers{
+    margin: 30px auto 0 auto;
+    width: 80%;
+    div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 150px;
+      img{
+        width: 120px;
+        margin-bottom: 10px;
+      }
+      p{
+        line-height: 1.4;
+      }
+    }
   }
 }
-
-@-webkit-keyframes "blink" {
-  from, to {
-    color: transparent;
+.social{
+  width: 500px;
+  margin: 80px auto 50px auto;
+  div{
+    width: 15vw;
+    &:first-child img{
+      width: 40%;
+    }
+    img{
+      width: 100%;
+    }
   }
-  50% {
-    color: $white;
+}
+.location{
+  width: 100%;
+  background: #FF7E65;
+  color: white;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  div{
+    flex: 1 1 350px;
+    width: 50%;
+    margin: 0 auto;
+    &:nth-child(2){
+      background: url("../img/map.png");
+      padding-top: 55%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+}
+.details{
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h2{
+    margin-top: 0;
+  }
+  h5{
+    margin: 0;
   }
 }
 
-@-ms-keyframes "blink" {
-  from, to {
-    color: transparent;
+@media (max-width: 767px){
+  .opening{
+    p{
+      width: 80%;
+    }
   }
-  50% {
-    color: $white;
+  .meetups{
+    h3{
+      width: 80%;
+    }
   }
-}
-
-@-o-keyframes "blink" {
-  from, to {
-    color: transparent;
+  .spaceport{
+    height: 70vw;
   }
-  50% {
-    color: $white;
+  .about{
+    div{
+      &:first-child{
+        height: 70vw;
+      }
+      &:nth-child(2){
+        height: auto;
+      }
+      p{
+        max-width: 70%;
+        padding: 10%;
+      }
+    }
   }
-}
-
-/* Shine effect */
-
-.icon:after {
-  content: "";
-  position: absolute;
-  top: -110%;
-  left: -210%;
-  width: 200%;
-  height: 200%;
-  opacity: 0;
-  transform: rotate(30deg);
-
-  background: rgba(255, 255, 255, 0.13);
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.13) 0%,
-    rgba(255, 255, 255, 0.13) 77%,
-    rgba(255, 255, 255, 0.5) 92%,
-    rgba(255, 255, 255, 0.0) 100%
-  );
-}
-
-/* Hover state - trigger effect */
-
-.icon:hover:after {
-  opacity: 0.5;
-  top: -30%;
-  left: -30%;
-  transition-property: left, top, opacity;
-  transition-duration: 0.7s, 0.7s, 0.15s;
-  transition-timing-function: ease;
+  .contact{
+    .organisers{
+      p{
+        margin-bottom: 50px;
+      }
+    }
+  }
+  .social{
+    width: 100%;
+  }
+  .location{
+    div{
+      &:nth-child(2){
+        padding-top: 100%;
+      }
+    }
+  }
 }
