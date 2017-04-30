@@ -12,6 +12,10 @@ module.exports = {
   module:{
     rules: [
       {
+        test: /\.(jpg|png|svg)$/,
+          use: 'file-loader'
+      },
+      {
         test: /\.sass$|\.scss$/,
         use: ExtractTextPlugin.extract({
           use: [ "css-loader", "postcss-loader", "sass-loader" ]
