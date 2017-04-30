@@ -9,6 +9,7 @@ A Webpack and React based project for the FCC Manchester website. The aim of thi
 - [Webpack Dev Server](https://webpack.github.io/docs/webpack-dev-server.html)
 - [sass-loader](https://github.com/webpack-contrib/sass-loader)
 - [css-loader](https://github.com/webpack-contrib/css-loader)
+- [file-loader] (https://github.com/webpack-contrib/file-loader) 
 - [gh-pages](https://www.npmjs.com/package/gh-pages)
 - [style Loader](https://github.com/webpack-contrib/style-loader)
 - [postcss-loader](https://github.com/postcss/postcss-loader)
@@ -29,6 +30,8 @@ $ npm install
 ```
 
 ## Usage
+
+If contributing, be sure to read the Contribution Tips at the bottom of this README!
 
 Enter the following command to start the development server:
 
@@ -52,7 +55,7 @@ You can now browse your local copy of the site from `http://localhost:8080`. Any
 ├── package.json                  # Included list of dependencies and scripts
 ├── postcss.config.js
 ├── src
-│   └── index.js                  # Entry point for Webpack.  You can also require / import static assets (such as stylesheets) here.
+│   └── index.js                  # Entry point for Webpack.  You can also require / import static assets (such as stylesheets and images) here.
 ├── styles                        # Edit any .css, .sass or .scss files here
 │   └── main.scss
 ├── webpack.dev.js                # Webpack config for our dev server
@@ -76,5 +79,10 @@ The development setup and the build setup are maintained in `webpack.dev.js` and
 Open to pull requests from FreeCodeCamp Manchester users.
 
 https://guides.github.com/activities/contributing-to-open-source/
+
+## Contribution tips
+- When adding a stylesheet, make sure you `@import` it in `styles/app.scss`
+- When using an images, make sure you `require()` it in the entry point `index.js` (or any other file that is part of the dependnecy tree)
+- Make sure the `npm run build` step completes without errors, and produces the results you expect!
 
 Say hello on our slack channel https://fcc-mcr-invite.herokuapp.com/
