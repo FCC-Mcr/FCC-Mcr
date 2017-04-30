@@ -1,0 +1,111 @@
+
+
+
+h1 {
+  font-size: 3.815em;
+}
+
+h2 {
+  font-size: 3.052em;
+}
+
+h3 {
+  font-size: 2.441em;
+}
+
+h4 {
+  font-size: 1.953em;
+}
+
+h5 {
+  font-size: 1.563em;
+}
+
+h6 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin: 0 0 $spacing--small;
+}
+
+a {
+  text-decoration: none;
+  color: color('secondary--dark');
+  &:active,
+  &:focus,
+  &:hover {
+    text-decoration: underline;
+    color: map-get($pallete, 'accent');
+  }
+  &:visited {
+    color: color('secondary--dark');
+  }
+}
+
+small {
+  font-size: 0.8em;
+}
+
+strong {
+  font-weight: map-get($font-weights, 'main-bold');
+}
+
+
+blockquote {
+  @include font('main-italic');
+  margin: $spacing--small $spacing;
+  padding: $spacing--small $spacing;
+  line-height: 1.4;
+  text-align: left;
+  color: color('black--dark');
+  border-left: color('black--light') 5px solid;
+  &.dark {
+    color: color('white');
+    border-left: color('white') 5px solid;
+    cite {
+      color: color('white');
+    }
+  }
+  cite {
+    color: color('black--light');
+    font-size: 90%;
+    display: block;
+    margin-top: 5px;
+    &:before {
+      content: "\2014 \2009";
+    }
+
+}
+
+
+}
+
+hr {
+  border: none;
+  border-top: medium double color('white');
+  &.dark {
+   border-top: medium double color('black');
+  }
+
+}
+
+em {
+  font-style: italic;
+}
+
+mark {
+  position: relative;
+  background: none;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    transform: rotate(-1deg);
+    background: color('accent');
+    z-index: -1;
+  }
+}
