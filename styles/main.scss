@@ -9,7 +9,9 @@ $font:      nunito sans;
   flex-wrap: wrap;
   flex-direction: row;
 }
-
+html{
+  overflow-x: hidden;
+}
 h1, h2, h3, h4, h5, h6, p, a{
   font-family: $font;
   font-weight: 500;
@@ -19,8 +21,9 @@ a{
 }
 body{
   margin: 0;
+  overflow-x: hidden;
 }
-nav{
+.wrap nav{
   text-align: center;
   background: $main;
   height: 100px;
@@ -29,18 +32,22 @@ nav{
   }
 }
 .opening{
-  padding: 14% 0px;
+  padding: 5% 0px;
   text-align: center;
   width: 100%;
   h2{
     margin-top: 0;
   }
   p{
-    width: 50%;
+    max-width: 500px;
     text-align: justify;
     display: inline-block;
     font-weight: 300;
     line-height: 1.4;
+  }
+  svg{
+    width: 70px;
+    margin-bottom: 10px;
   }
 }
 .meetups{
@@ -127,7 +134,10 @@ nav{
       flex: 1 1 150px;
       img{
         width: 120px;
+        height: 120px;
         margin-bottom: 10px;
+        background: pink;
+        border-radius: 50%;
       }
       p{
         line-height: 1.4;
