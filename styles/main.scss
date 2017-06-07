@@ -131,13 +131,27 @@ body{
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex: 1 1 150px;
-      img{
+      flex: 1 1 120px;
+      div{
         width: 120px;
         height: 120px;
-        margin-bottom: 10px;
-        background: pink;
         border-radius: 50%;
+      }
+      &:nth-child(1) div{
+        background-image: url("../img/pete.jpeg");
+        background-size: cover;
+      }
+      &:nth-child(2) div{
+        background-image: url("../img/mircea.jpg");
+        background-size: cover;
+      }
+      &:nth-child(3) div{
+        background-image: url("../img/james.jpeg");
+        background-size: cover;
+      }
+      &:nth-child(4) div{
+        background-image: url("../img/adam.jpeg");
+        background-size: cover;
       }
       p{
         line-height: 1.4;
