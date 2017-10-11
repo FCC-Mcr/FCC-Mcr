@@ -32,7 +32,7 @@ body{
   }
 }
 .opening{
-  padding: 5% 0px;
+  padding: 8% 0px;
   text-align: center;
   width: 100%;
   h2{
@@ -51,8 +51,10 @@ body{
   }
 }
 .meetups{
-  background: #DE5E45;
+  background: linear-gradient(rgba(222, 94, 69, 0.88),rgba(222, 94, 69, 0.88)), url("../img/background.jpg");
   color: white;
+  background-size: cover;
+  background-position: center center;
   text-align: center;
   width: 100%;
   padding: 14% 0px;
@@ -71,11 +73,11 @@ body{
 
 }
 .spaceport{
-  background: rgba(45, 164, 201, 0.75);
+  background: linear-gradient(rgba(45, 164, 201, 0.75),rgba(45, 164, 201, 0.75)),url("../img/spaceport.png");
   background-size: cover;
-  background-position: center center;
+  background-position: top 70% ;
   min-height: 200px;
-  height: 50vw;
+  height: 60vw;
   max-height: 600px;
   svg{
     width: 50%;
@@ -97,8 +99,8 @@ body{
     justify-content: center;
     align-items: center;
     &:first-child{
-    background: #FF7E65;
-    color: white;
+      background: #FF7E65;
+      color: white;
     }
     &:nth-child(2){
     background: white;
@@ -109,7 +111,7 @@ body{
       max-width: 300px;
       line-height: 1.4;
       margin: 0;
-      padding: 70px 0px;
+      margin: 18% 0px;
     }
   }
 }
@@ -122,6 +124,9 @@ body{
   padding: 120px 0 80px 0;
   h1{
     margin: 0 0 70px 0;
+  }
+  a{
+    color: white;
   }
   .organisers{
     margin: 30px auto 0 auto;
@@ -185,18 +190,16 @@ body{
     flex: 1 1 350px;
     width: 70%;
     margin: 0 auto;
-    padding: 50px 0;
+    height: 50vw;
     h2{
       font-size: 3vw;
     }
     h5{
       font-size: 2vw;
     }
-    &:nth-child(2){
-      background: url("../img/map.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
+    iframe{
+      width: 100%;
+      height: 100%;
     }
   }
 }
@@ -205,6 +208,7 @@ body{
   justify-content: center;
   align-self: center;
   flex-direction: column;
+  color: white
   h2{
     margin-top: 0;
   }
@@ -218,8 +222,12 @@ body{
     h2{
       font-size: 10vw;
     }
+    svg{
+      margin-top: 30px;
+    }
     p{
       width: 80%;
+      margin-bottom: 50px;
     }
   }
   .meetups{
@@ -234,8 +242,8 @@ body{
     }
   }
   .about{
-    p{
-      padding: 50px 0px;
+    div:first-child{
+      height: 80vw;
     }
   }
   .contact{
@@ -250,15 +258,12 @@ body{
   }
   .location{
     div{
-      padding: 50px 0px;
+      height: 100vw;
       h2{
         font-size: 9vw;
       }
       h5{
         font-size: 5vw;
-      }
-      &:nth-child(2){
-        height: 60vw;
       }
     }
   }
